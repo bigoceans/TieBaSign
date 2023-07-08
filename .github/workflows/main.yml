@@ -23,6 +23,10 @@ jobs:
         run: |
           echo "$(date +%Y-%m-%d\ %H:%M:%S) - 签到成功" >> run.log
       - name: Push log #更新日志
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: auto-checkin
+          branch: main
       - name: 'Start Sign'
         env:
           BDUSS: ${{ secrets.BDUSS }}
